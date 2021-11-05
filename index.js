@@ -12,7 +12,11 @@ const server = http.createServer((req, res) => {
   );
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
-  res.end("Bonjour le monde!\n");
+  if (req.url == "/index.html") {
+    res.end("Bonjour vous avez demande l'index.html\n");
+  } else {
+    res.end("Bonjour le monde!\n");
+  }
 });
 
 server.listen(port, hostname, () => {
