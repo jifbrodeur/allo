@@ -8,9 +8,10 @@ const server = http.createServer((req, res) => {
     `Le serveur a reçu une requête l'URL suivant: http://${hostname}:${port} requete:` +
       req.url
   );
-  fichier = req.url;
+
+  let fichier = req.url.slice(1);
   res.statusCode = 200;
-  if (fichier) {
+  if (fichier && fichier != "favicon.ico") {
     fs.readFile(fichier, function (err, data) {
       res.setHeader("Content-Type", "text/html");
       res.end(data);
