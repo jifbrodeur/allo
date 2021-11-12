@@ -1,7 +1,5 @@
 const http = require("http");
-
-//const hostname = "localhost";
-//const hostname = "10.0.2.15";
+const fs = require("fs");
 const hostname = "0.0.0.0";
 const port = 3000;
 
@@ -11,10 +9,13 @@ const server = http.createServer((req, res) => {
       req.url
   );
   res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
   if (req.url == "/index.html") {
-    res.end("Bonjour vous avez demande l'index.html\n");
+    fs.readFile("index.html", function (err, data) {
+      res.setHeader("Content-Type", "text/html");
+      res.end(data);
+    });
   } else {
+    res.setHeader("Content-Type", "text/plain");
     res.end("Bonjour le monde!\n");
   }
 });
