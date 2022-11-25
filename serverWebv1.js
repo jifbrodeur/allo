@@ -1,13 +1,14 @@
-const http = require("http");
-const hostname = "0.0.0.0"; //pour écouter sur tous les ports dans le cas d'une VM
-const port = process.env.PORT || 3000;
+const http = require("http"); //charge le module pour parler à un client HTTP
+const hostname = "localhost"; //pour écouter sur une machine et un port
+const port = 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/html");
-  res.end("Bonjour le monde!\n");
+const serveur = http.createServer((requete, reponse) => {
+  reponse.statusCode = 200;
+  reponse.setHeader("Content-Type", "text/html");
+  reponse.end("Bonjour le monde!\n");
 });
 
-server.listen(port, hostname, () => {
+//main
+serveur.listen(port, hostname, () => {
   console.log(`Le serveur roule à l'URL suivant: http://${hostname}:${port}/`);
 });
