@@ -1,12 +1,11 @@
 const http = require("http");
 const fs = require("fs");
-const hostname = "0.0.0.0";
+const hostname = "localhost";
 const port = 3000;
 
 const server = http.createServer((req, res) => {
   console.log(
-    `Le serveur a reçu une requête l'URL suivant: http://${hostname}:${port} requete:` +
-      req.url
+    `Le serveur a reçu une requête l'URL suivant: http://${hostname}:${port} requete: ${req.url}`
   );
   res.statusCode = 200;
   if (req.url == "/index.html") {

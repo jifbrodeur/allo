@@ -3,6 +3,7 @@ const hostname = "localhost"; //pour écouter sur une machine et un port
 const port = 3000;
 
 const serveur = http.createServer((requete, reponse) => {
+  console.log(requete.url);
   reponse.statusCode = 200;
   reponse.setHeader("Content-Type", "text/html");
   reponse.end("Bonjour le monde!\n");
