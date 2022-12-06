@@ -3,12 +3,11 @@ const fs = require("fs"); //module pour lire les fichiers du SE
 const path = require("path"); //module pour décortiquer le chemin URL
 const MIMEType = require("./MIMEType.js"); //module qui export un objet des extension et MIME Type
 const hostname = "localhost";
-const port = 3000; //port de l'écoute, standard http: 80, https: 443
+const port = 3010; //port de l'écoute, standard http: 80, https: 443
 
 const serveur = http.createServer((requete, reponse) => {
   console.log(
-    `Le serveur a reçu une requête l'URL suivant: http://${hostname}:${port} requete:` +
-      requete.url
+    `Le serveur a reçu une requête l'URL suivant: http://${hostname}:${port} requete: requete.url`
   );
 
   let fichier = "." + requete.url; //utilisation du répertoire courant
