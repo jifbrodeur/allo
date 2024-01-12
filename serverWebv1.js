@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
   if (route == "/index.html") {
     res.setHeader("Content-Type", "text/plain");
     res.end(
-      `Vous avez demandé index.html!  nom: ${nom} mot de passe: ${motdepasse}\n`
+      `Vous avez demandé le fichier index.html!  nom: ${nom} mot de passe: ${motdepasse}\n`
     );
   }
 });
